@@ -1,4 +1,4 @@
-const apiKey = '7f65a98cdbf1496088f8cb61e23fd2e8';
+const apiKey = '52e56bba9e6e457893b7b23700a34465';
 const topHeadlinesUrl =
   'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + apiKey;
 

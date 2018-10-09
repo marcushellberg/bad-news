@@ -31,3 +31,17 @@ main {
   grid-auto-rows: max-content;
   grid-auto-flow: row dense;
 }
+
+news-article h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+news-article a,
+news-article a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+news-article img {
+  width: 100%;
+}

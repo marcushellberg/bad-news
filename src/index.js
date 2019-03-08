@@ -1,8 +1,10 @@
-import loadPolyfills from '@open-wc/polyfills-loader';
+import './news-app.js';
 
-loadPolyfills().then(() => {
-  import('./news-app.js');
-});
+// Use this instead of the direct import if you want to support browsers without native support
+// import loadPolyfills from '@open-wc/polyfills-loader';
+// loadPolyfills().then(() => {
+//   import('./news-app.js');
+// });
 
 window.addEventListener('load', () => {
   registerSW();

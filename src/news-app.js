@@ -1,41 +1,28 @@
 import './news-article';
 import { topHeadlinesUrl } from './newsApi';
-import { LitElement, html, property, css } from 'lit-element';
+import './styles.css';
+import { render, html } from 'lit-html';
 
-class NewsApp extends LitElement {
-  @property({ type: Array })
-  articles = [];
+window.addEventListener('load', () => {
+  getNews();
+});
 
-  static styles = css`
-    :host {
-      display: grid;
-      grid-gap: 30px;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      grid-auto-rows: max-content;
-      grid-auto-flow: row dense;
-    }
-  `;
+const getNews = async () => {
+  const res = await fetch(topHeadlinesUrl);
+  const json = await res.json();
 
-  render() {
-    return html`
-      ${this.articles.map(
+  const articles = json.articles;
+  const main = document.querySelector('main');
+  render(
+    html`
+      ${articles.map(
         article => html`
           <news-article .article=${article}></news-article>
         `
       )}
-    `;
-  }
+    `,
+    main
+  );
+};
 
-  firstUpdated() {
-    this.getNews();
-  }
-
-  async getNews() {
-    const res = await fetch(topHeadlinesUrl);
-    const json = await res.json();
-
-    this.articles = json.articles;
-  }
-}
-
-customElements.define('news-app', NewsApp);
+// customElements.define('news-app', NewsApp);

@@ -31,5 +31,13 @@ const defaultConfig = createDefaultConfig({
 });
 
 module.exports = merge(defaultConfig, {
-  plugins: [workboxPlugin, new CopyWebpackPlugin([{ from: './src/manifest.webmanifest' }])]
+  plugins: [workboxPlugin, new CopyWebpackPlugin([{ from: './src/manifest.webmanifest' }])],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  }
 });

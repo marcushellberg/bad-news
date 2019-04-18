@@ -1,9 +1,8 @@
-import { LitElement, css, html } from 'lit-element';
+import { LitElement, css, html, property } from 'lit-element';
 
 class NewsArticle extends LitElement {
-  static properties = {
-    article: Object
-  };
+  @property({ type: Array })
+  article = {};
 
   static styles = css`
     h2 {

@@ -24,5 +24,3 @@ const getNews = async () => {
     main
   );
 };
-
-// customElements.define('news-app', NewsApp);
